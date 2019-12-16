@@ -109,7 +109,10 @@
     <Content Include="WebDevFlask\static\scripts\modernizr-2.6.2.js" />
     <Content Include="WebDevFlask\static\scripts\respond.js" />
     <Content Include="WebDevFlask\static\scripts\respond.min.js" />
+    <Content Include="WebDevFlask\static\scripts\upload.js" />
     <Content Include="WebDevFlask\static\scripts\_references.js" />
+    <Content Include="WebDevFlask\templates\upload_file.html" />
+    <Content Include="WebDevFlask\templates\read_file.html" />
     <Content Include="WebDevFlask\templates\about.html" />
     <Content Include="WebDevFlask\templates\contact.html" />
     <Content Include="WebDevFlask\templates\index.html" />

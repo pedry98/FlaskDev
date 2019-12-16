@@ -3,8 +3,10 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
-from flask import render_template
+from flask import Flask, flash, request, redirect, url_for, make_response, render_template
 from WebDevFlask import app
+
+
 
 @app.route('/')
 @app.route('/home')
@@ -37,6 +39,7 @@ def about():
     )
 
 
+
 @app.route('/LoginRegister')
 def LoginRegister():
     """Renders the about page."""
@@ -62,3 +65,24 @@ def upload_file():
       <input type=submit value=Upload>
     </form>
     '''
+
+
+
+@app.route('/uploadfile')
+def form():
+    return render_template('upload_file.html')
+
+@app.route('/read', methods=["POST"])
+def transform_view():
+    request_file = request.files['data_file']
+    if not request_file:
+        return "No file"
+    found_keywords = []
+    file_contents = request_file.read()
+    list_of_words = file_contents.split()
+    keywords = ['Pedro','book','nice']
+    found_keywords = [e for e in keywords if e in '\n'.join(list_of_words)]
+    a = found_keywords
+    return render_template('read_file.html', filetext = file_contents, found_keys = a)
+     
+   
